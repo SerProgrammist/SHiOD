@@ -1,0 +1,7 @@
+docker build -t d_img:latest . (сборка образа Dockerfile)
+docker run -d -p 5432:5432 --name d_cont d_img:latest (запуск контейнера)
+docker run -d -p 5432:5432 --name d_cont d_img:latest -v /d_data:/var/lib/postgresql/data (создание тома, запуск контейнера)
+docker exec -it d_cont psql -U dbuser -d dbname (работа с psql)
+\q (выход из psql)
+docker stop d_cont (остановка контейнера)
+docker rm d_cont (удаление контейнера)
